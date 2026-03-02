@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*selector de TIPO (etiqueta): afectar a todo el cuerpo de la pagina*/
+body{
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #111;
+}
+/*selector de TIPO aplicar estilo al encabezado*/
+header{
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* hero estilo */
+.hero{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* H1 minimalista */
+.hero h1{
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+/* Párrafo */
+.hero p{
+    max-width: 650px; 
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #555;
+}
+
+/*selector descendiente*/
+nav ul{
+    list-style: none;
+}
+/*selector de tipo para los elementos li dentro del nav ul*/
+nav ul li{
+    display: inline-block;
+    margin: 0 20px;
+}
+/*selector de los enlaces (a) dentro del nav */
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*selector de CLASE selecciona cualquier elemento que tenga class="proyecto-header"*/
+.proyectos-header{
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+}
+
+.proyectos-header h2{
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+.proyectos-header h2::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #111;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+/*selector de CLASE selecciona cualquier elemento que tenga class="proyecto-card"*/
+.proyecto-card{
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+
+/*selector de ID (#) seleccionar un elemento en especifico */
+#contenedor-proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: #transparent;
+}
+
+/* Footer */
+footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+    background: transparent;
+}
+
+/*MEDIA QUERYS*/
+
+@media screen and (max-width: 600px) {
+    nav ul li{
+        display: block;
+        margin: 10px 0;
+    }
+    .proyecto-card{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:900px){
+    #contenedor-proyectos{
+        justify-content: space-around;
+        gap: 10px;
+    }
+    .proyecto-card{
+        width: 45%;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    body{
+        background: #121212;
+        color: #e0e0e0;
+    }
+    header{
+        background: #1f1f1f;
+    }
+    .proyecto-card{
+        background: #1e1e1e;
+        border: 1px solid #333;
+        color: #e0e0e0;
+    }
+    .proyecto-card a{
+        color: #90caf9;
+    }
+}
+
+ 
