@@ -7,42 +7,25 @@
 body{
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    background: #f9f9f9;
-    color: #111;
+    background: #f5f5f5;
+}
+
+body.modo-oscuro{
+    background: #121212;
+    color: #e0e0e0;
+}
+body.modo-oscuro header{
+    background: #1f1f1f;
 }
 /*selector de TIPO aplicar estilo al encabezado*/
 header{
     background: #333;
     color: #fff;
-    padding: 20px;
+    padding: 20px 40px;
     text-align: center;
-}
-
-/* hero estilo */
-.hero{
-    min-height: 80vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-/* H1 minimalista */
-.hero h1{
-    font-size: 2.8rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-}
-
-/* Párrafo */
-.hero p{
-    max-width: 650px; 
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #555;
+    justify-content: space-between;
 }
 
 /*selector descendiente*/
@@ -60,31 +43,199 @@ nav ul li a{
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-}
-
-/*selector de CLASE selecciona cualquier elemento que tenga class="proyecto-header"*/
-.proyectos-header{
-    text-align: center;
-    padding: 60px 20px 20px 20px;
-}
-
-.proyectos-header h2{
-    font-size: 2.3rem;
-    font-weight: 600;
-    letter-spacing: -1px;
-    position: relative;
     display: inline-block;
+    transition: transform 0.2s ease;
 }
 
-.proyectos-header h2::after{
-    content: "";
-    display: block;
-    width: 50px;
-    height: 2px;
-    background: #111;
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
+nav ul li a:hover {
+    transform: scale(1.5);
+    color: #90caf9;
 }
+header nav {
+    flex: 1;
+    text-align: center;
+}
+
+.switch-tema {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.switch-pista {
+    width: 50px;
+    height: 26px;
+    background: #ccc;
+    border-radius: 50px;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.switch-circulo {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 60px;
+    background: linear-gradient(135deg, #ffffff, #e8f0fe);
+}
+
+.hero-card {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    overflow: hidden;
+}
+
+.hero-perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.hero-izquierda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.foto-perfil {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4a90e2;
+}
+
+.profesion {
+    color: #555;
+    font-weight: 600;
+}
+
+.ubicacion {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.hero-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #555;
+    border-left: 1px solid #ddd;
+    padding-left: 30px;
+}
+
+.hero-divisor {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.hero-sobre-mi {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-sobre-mi h2 {
+    margin-bottom: 12px;
+    color: #333;
+}
+
+#ver-proyectos {
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+/* Modo oscuro hero */
+body.modo-oscuro .hero {
+    background: linear-gradient(135deg, #121212, #1a237e);
+}
+
+body.modo-oscuro .hero-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.modo-oscuro .hero-divisor {
+    border-color: #333;
+}
+
+body.modo-oscuro .hero-derecha {
+    border-color: #333;
+}
+
+body.modo-oscuro .profesion,
+body.modo-oscuro .ubicacion,
+body.modo-oscuro .hero-derecha p,
+body.modo-oscuro .hero-sobre-mi p,
+body.modo-oscuro .hero-sobre-mi h2 {
+    color: #aaaaaa;
+}
+
+/* Nav fijo */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Modo oscuro hero */
+body.modo-oscuro .hero {
+    background: linear-gradient(135deg, #121212, #1a237e);
+}
+
+body.modo-oscuro .hero-perfil,
+body.modo-oscuro .hero-sobre-mi {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.modo-oscuro .switch-pista {
+    background: #4a90e2;
+}
+
+body.modo-oscuro .switch-circulo {
+    transform: translateX(24px);
+}
+
 /*selector de CLASE selecciona cualquier elemento que tenga class="proyecto-card"*/
 .proyecto-card{
     border: 1px solid #ddd;
@@ -95,8 +246,6 @@ nav ul li a{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: 300px;
 }
-
-
 /*selector de ID (#) seleccionar un elemento en especifico */
 #contenedor-proyectos {
     display: flex;
@@ -104,16 +253,7 @@ nav ul li a{
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background: #transparent;
-}
-
-/* Footer */
-footer{
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #777;
-    background: transparent;
+    background: #e0f7fa;
 }
 
 /*MEDIA QUERYS*/
@@ -144,7 +284,7 @@ footer{
 @media (prefers-color-scheme: dark){
     body{
         background: #121212;
-        color: #e0e0e0;
+        color: #212020;
     }
     header{
         background: #1f1f1f;
@@ -157,6 +297,13 @@ footer{
     .proyecto-card a{
         color: #90caf9;
     }
-}
+     
+    .profesion,
+    .ubicacion,
+    .hero-derecha p,
+    .hero-sobre-mi p,
+    .hero-sobre-mi h2 {
+    color: #aaaaaa;
+    }
 
- 
+}

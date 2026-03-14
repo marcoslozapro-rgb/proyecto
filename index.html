@@ -19,18 +19,49 @@
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
+    <div class="switch-tema" id="btn-tema">
+    <span class="icono-sol">☀️</span>
+    <div class="switch-pista">
+      <div class="switch-circulo"></div>
+    </div>
+    <span class="icono-luna">🌙</span>
+  </div>
    </header>
    <section class="hero">
-    <h1>Bienvenido a mi Portafolio</h1>
-    <!-- <p> define un párrafo de texto [6] -->
-    <p>
-       Hola. Soy Marcos Loza, un estudiante de desarrollo de software apasionado por el diseño de interfaces, busco que la gente viva una experiencia al usar mi software y trabajo para que cada proyecto lleve esa esencia, ya sea un proyecto nuevo o una actualización de un software existente.
-    </p>
-   </section>
+    <div class="hero-card">
+        <div class="hero-perfil">
+            <div class="hero-izquierda">
+                <img 
+                    src="marcolook.com" 
+                    alt="Foto de Marcos Loza"
+                    class="foto-perfil"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Marcos+Loza&size=150&background=4a90e2&color=fff'"
+                >
+                <div class="hero-datos">
+                    <h1>Marcos Loza</h1>
+                    <p class="profesion">Desarrollador de Software</p>
+                    <p class="ubicacion"> La Paz, Bolivia</p>
+                </div>
+            </div>
+            <div class="hero-derecha">
+                <p>✉️ marcoslozapro@gmail.com</p>
+                <p>📞 +59175279708</p>
+                <p>🌐 marcolook.com</p>
+            </div>
+        </div>
+        <hr class="hero-divisor">
+        <div class="hero-sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Soy Marcos Loza, un estudiante de desarrollo de software apasionado 
+                por el diseño de interfaces, busco que la gente viva una experiencia 
+                al usar mi software y trabajo para  que cada proyecto lleve esa esencia, 
+                ya sea un proyecto nuevo o una actualización de un software existente.</p>
+            <button id="ver-proyectos">Ver mis proyectos</button>
+        </div>
+    </div>
+</section>
    <section id="proyectos">
-      <div class="proyectos-header">
           <h2> Mis proyectos</h2>
-      </div> 
     <div id="contenedor-proyectos">
         <div class="proyecto-card">
             <h3> proyecto 1</h3>
@@ -54,4 +85,5 @@
     <p>&copy; 2026 Marcos Loza. Todos los derechos reservados.</p>
    </footer>
 </body>
+<script src="script.js"></script>
 </html>
