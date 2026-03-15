@@ -9,16 +9,22 @@
 </head>
 <body>
    <header>
+    <button class="menu-hamburguesa" id="menu-hamburguesa">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="proyectos.html">Sobre Mi</a></li>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="proyectos.html">Experiencia</a></li>
-            <li><a href="proyectos.html">Certificacion</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="#" id="link-inicio">Inicio</a></li>
+    <li><a href="#" id="link-sobre-mi">Sobre Mí</a></li>
+    <li><a href="#" id="link-proyectos">Proyectos</a></li>
+    <li><a href="#" id="link-experiencia">Experiencia</a></li>
+    <li><a href="#" id="link-certificacion">Certificación</a></li>
+    <li><a href="https://api.whatsapp.com/send/?phone=59175279708&text&type=phone_number&app_absent=0" target="_blank">Contacto</a></li>
         </ul>
     </nav>
+    
     <div class="switch-tema" id="btn-tema">
     <span class="icono-sol">☀️</span>
     <div class="switch-pista">
@@ -32,7 +38,7 @@
         <div class="hero-perfil">
             <div class="hero-izquierda">
                 <img 
-                    src="marcolook.com" 
+                    src="https://ilookserver.com/tec/marcoloza/marco.jpg" 
                     alt="Foto de Marcos Loza"
                     class="foto-perfil"
                     onerror="this.src='https://ui-avatars.com/api/?name=Marcos+Loza&size=150&background=4a90e2&color=fff'"
@@ -44,14 +50,14 @@
                 </div>
             </div>
             <div class="hero-derecha">
-                <p>✉️ marcoslozapro@gmail.com</p>
-                <p>📞 +59175279708</p>
-                <p>🌐 marcolook.com</p>
+                <p><a href="mailto:marcoslozapro@gmail.com" class="contacto-link">✉️ marcoslozapro@gmail.com</a></p>
+                <p><a href="https://wa.me/59175279708" target="_blank" class="contacto-link">📞 +59175279708</a></p>
+                <p><a href="https://marcolook.com" target="_blank" class="contacto-link">🌐 marcolook.com</a></p>
             </div>
         </div>
         <hr class="hero-divisor">
         <div class="hero-sobre-mi">
-            <h2>Sobre Mí</h2>
+            <h2 class="titulo-seccion">Sobre Mí</h2>
             <p>Soy Marcos Loza, un estudiante de desarrollo de software apasionado 
                 por el diseño de interfaces, busco que la gente viva una experiencia 
                 al usar mi software y trabajo para  que cada proyecto lleve esa esencia, 
@@ -60,30 +66,89 @@
         </div>
     </div>
 </section>
-   <section id="proyectos">
-          <h2> Mis proyectos</h2>
-    <div id="contenedor-proyectos">
-        <div class="proyecto-card">
-            <h3> proyecto 1</h3>
-            <p>Descripción breve del proyecto 1.</p>
+<section id="habilidades-experiencia">
+    <div class="seccion2-card">
+
+        <div class="skills-bloque">
+            <h2>Habilidades <span>(Skills)</span></h2>
+            <div class="skills-chips">
+                <span class="chip">JavaScript</span>
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">Python</span>
+                <span class="chip">Git</span>
+            </div>
         </div>
-         <div class="proyecto-card">
-            <h3> proyecto 2</h3>
-            <p>Descripción breve del proyecto 2.</p>
+
+        <div class="experiencia-bloque">
+            <h2 class="titulo-lineas">Experiencia Profesional</h2>
+            <div class="experiencia-grid">
+               <div class="experiencia-item">
+                <span class="experiencia-badge">Full Stack</span>
+                <h3>Desarrollador Full Stack</h3>
+                <p class="empresa">iLookServer</p>
+                <p>Desarrollo, implementación y mantenimiento 
+                    integral de la plataforma web desde cero. 
+                    Responsable de la arquitectura frontend y backend, 
+                    gestión de bases de datos, despliegue de actualizaciones y 
+                    optimización continua del sistema.</p>
+            </div>
+            <div class="experiencia-item">
+                <span class="experiencia-badge">Sysadmin</span>
+                <h3>Administrador de Sistemas</h3>
+                <p class="empresa">Adyel Service</p>
+                <p>Gestión y administración de infraestructura tecnológica, 
+                    supervisión de sistemas operativos, mantenimiento de redes, 
+                    soporte técnico y garantía de continuidad operativa de los servicios de TI.</p>
+            </div>
+            </div>
         </div>
-         <div class="proyecto-card">
-            <h3> proyecto 3</h3>
-            <p>Descripción breve del proyecto 3.</p>
+
+        <div class="certificaciones-bloque">
+            <h2 class="titulo-lineas">Certificaciones</h2>
+            <div class="cert-chips">
+            <span class="cert-chip">🎓 Platzi</span>
+            <span class="cert-chip">🎓 Udemy</span>
+            <span class="cert-chip">🎓 EDteam</span>
+            <span class="cert-chip">🎓 Mastermind</span>
         </div>
-         <div class="proyecto-card">
-            <h3> proyecto 4</h3>
-            <p>Descripción breve del proyecto 4.</p>
-        </div>
+</div>
+
     </div>
-   </section>
-   <footer>
-    <p>&copy; 2026 Marcos Loza. Todos los derechos reservados.</p>
-   </footer>
+</section>
+<section id="proyectos">
+    <h2>Mis proyectos</h2>
+    <div id="contenedor-proyectos">
+         <div class="proyecto-card">
+    <span class="proyecto-badge">Web</span>
+    <h3>Proyecto 1</h3>
+    <p>Descripción breve del proyecto 1.</p>
+    <a href="#" class="proyecto-link">Ver más →</a>
+</div>
+<div class="proyecto-card">
+    <span class="proyecto-badge">Backend</span>
+    <h3>Proyecto 2</h3>
+    <p>Descripción breve del proyecto 2.</p>
+    <a href="#" class="proyecto-link">Ver más →</a>
+</div>
+<div class="proyecto-card">
+    <span class="proyecto-badge">Mobile</span>
+    <h3>Proyecto 3</h3>
+    <p>Descripción breve del proyecto 3.</p>
+    <a href="#" class="proyecto-link">Ver más →</a>
+</div>
+<div class="proyecto-card">
+    <span class="proyecto-badge">Full Stack</span>
+    <h3>Proyecto 4</h3>
+    <p>Descripción breve del proyecto 4.</p>
+    <a href="#" class="proyecto-link">Ver más →</a>
+</div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Marcos Loza. Todos los derechos reservados.</p>
+    </footer>
+</section>
 </body>
 <script src="script.js"></script>
 </html>

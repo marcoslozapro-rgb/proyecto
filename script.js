@@ -1,18 +1,4 @@
-function cepillarDientes() {
-    console.log("1. Cepillando los dientes .... (entra y sale de la pila rapido)");
-}
 
-function bañarse() {
-    cepillarDientes(); //se apila encima de bañarse
-    console.log("2. cuerpo limpio (bañarse termina ahora)");
-}
-
-function empezarDia(){
-    bañarse(); //se apila encima de empezarDia
-    console.log("3. listo para trabajar (pila vacia )");
-}
-
-empezarDia(); //se apila empezarDia
 
 const botonProyectos = document.getElementById("ver-proyectos");
 function mostrarProyectos() {
@@ -20,6 +6,32 @@ function mostrarProyectos() {
     proyectosSection.scrollIntoView({ behavior: "smooth" });
 }
 botonProyectos.addEventListener("click", mostrarProyectos);
+
+// Navegacion del nav
+document.getElementById("link-inicio").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("link-sobre-mi").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(".hero-sobre-mi").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("link-proyectos").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("proyectos").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("link-experiencia").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("habilidades-experiencia").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("link-certificacion").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("habilidades-experiencia").scrollIntoView({ behavior: "smooth" });
+});
 
 // Efecto dock de Mac en el nav
 const linksNav = document.querySelectorAll("nav ul li a");
@@ -57,11 +69,28 @@ function alternarTema() {
     }
     
 }
+const prefiereModoOscuro = window.matchMedia("(prefers-color-scheme: dark)");
+
 function alternarTemaCSS() {
     document.body.classList.toggle("modo-oscuro");
+    const esModoOscuro = document.body.classList.contains("modo-oscuro");
+    localStorage.setItem("temaPreferido", esModoOscuro ? "oscuro" : "claro");
 }
-// botonTema.addEventListener("click", alternarTema); // 
 botonTema.addEventListener("click", alternarTemaCSS);
+
+// Al cargar verificamos localStorage primero, luego el dispositivo
+const temaGuardado = localStorage.getItem("temaPreferido");
+if (temaGuardado) {
+    if (temaGuardado === "oscuro") {
+        document.body.classList.add("modo-oscuro");
+    } else {
+        document.body.classList.remove("modo-oscuro");
+    }
+} else {
+    if (prefiereModoOscuro.matches) {
+        document.body.classList.add("modo-oscuro");
+    }
+}
 
 
 // ejemplo: alerta al hacer clic de un proyecto 
@@ -166,15 +195,16 @@ async function cargarProyectos() {
         const proyectos = await response.json();
         const contenedorProyectos = document.getElementById("contenedor-proyectos");
         contenedorProyectos.innerHTML = ""; //limpiar el contenedor antes de agregar nuevos proyectos
-        proyectos.forEach(proyecto => {
-            contenedorProyectos.innerHTML += `
-                <div class="proyecto-card">
-                    <h3>${proyecto.name}</h3>   
-                    <p>${proyecto.description || "Sin descripción"}</p>
-                    <a href="${proyecto.html_url}" target="_blank">Ver en GitHub</a>
-                </div>
-                    `;
-        });
+       proyectos.forEach(proyecto => {
+    contenedorProyectos.innerHTML += `
+        <div class="proyecto-card">
+            <span class="proyecto-badge">GitHub</span>
+            <h3>${proyecto.name}</h3>   
+            <p>${proyecto.description || "Sin descripción"}</p>
+            <a href="${proyecto.html_url}" target="_blank" class="proyecto-link">Ver más →</a>
+        </div>
+    `;
+});
     } catch (error) {
         console.error("Error:", error);
     }
@@ -197,7 +227,7 @@ const UI = {
         document.getElementById(id).scrollIntoView({ behavior: "smooth" }); }
 
 };
-botonTema.addEventListener("click", () => UI.alternarColor());
+//botonTema.addEventListener("click", () => UI.alternarColor());
 
 
 
@@ -206,15 +236,28 @@ function guardartema(color) {
     localStorage.setItem("temaPreferido", color);
 } 
 
-const temaGuardado = localStorage.getItem("temaPreferido");
-if (temaGuardado) {
-    cuerpoPagina.style.backgroundColor = temaGuardado;
-    cuerpoPagina.style.color = temaGuardado === "black" ? "white" : "black";
-}
+//const temaGuardado = localStorage.getItem("temaPreferido");
+//if (temaGuardado) {
+//    cuerpoPagina.style.backgroundColor = temaGuardado;
+//    cuerpoPagina.style.color = temaGuardado === "black" ? "white" : "black";
+//}
 
 // delegacion  de  eventos: un solo listener para todo el contenedor de proyectos
 const contenedor = document.getElementById("contenedor-proyectos");
+// Menú hamburguesa para móvil
+const botonHamburguesa = document.getElementById("menu-hamburguesa");
+const menuNav = document.querySelector("nav ul");
 
+botonHamburguesa.addEventListener("click", function() {
+    menuNav.classList.toggle("abierto");
+});
+
+// Cerrar menú al hacer clic en un link
+menuNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function() {
+        menuNav.classList.remove("abierto");
+    });
+});
 //prueba de git 
 contenedor.addEventListener("click", function(evento){
  // .target el elemento que fue clikeado .closest busca el padre mas cercano que coincida con el selector dado
